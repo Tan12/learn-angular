@@ -1,0 +1,20 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'sitestat',
+  templateUrl: './sitestat.component.html',
+  styleUrls: ['./sitestat.component.css']
+})
+export class SitestatComponent implements OnInit {
+	public currentTime: Date = new Date();
+
+	constructor() {
+		window.setInterval(
+			()=>{this.currentTime=new Date()}
+		,1000);
+	}
+
+  ngOnInit() {
+  }
+
+}
