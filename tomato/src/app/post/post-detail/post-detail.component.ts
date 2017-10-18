@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router, Params } from '@angular/router';
+
+import { Post } from '../model/post-model';
+import { PostDetailService } from './services/post-detail.service';
 
 @Component({
   selector: 'post-detail',
@@ -6,10 +10,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./post-detail.component.css']
 })
 export class PostDetailComponent implements OnInit {
+  public post: Post = new Post();
 
-  constructor() { }
+    constructor(public postDetailService: PostDetailService,
+        public activeRoute: ActivatedRoute
+    ) {
+      console.log(this.postDetailService);
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+      this.activeRoute.params.subscribe(
+        params =>this.getPost(params["postId"])
+      );
+    }
 
+    public getPost(id:number){
+      this.postDetailService
+          .getPost(id)
+          .subscribe(
+            data => this.post = data,
+            error => console.error(error)
+          );
+    }
 }
