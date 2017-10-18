@@ -8,7 +8,7 @@ import 'rxjs/add/operator/merge';
 import { Message } from 'primeng/primeng';
 
 @Component({
-  selector: 'root',
+  selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })

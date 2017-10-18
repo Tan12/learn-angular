@@ -25,8 +25,8 @@ export class PostlistComponent implements OnInit {
 
   constructor(
     public router: Router,
-        public activeRoute: ActivatedRoute,
-        public postService:PostlistService) {
+    public activeRoute: ActivatedRoute,
+    public postService:PostlistService) {
     
     console.log("------这里开始对比Promise和Observable，这块代码是为了学习Observable使用的------");
 
@@ -89,12 +89,12 @@ export class PostlistComponent implements OnInit {
       });
 
     this.searchTextStream
-          .debounceTime(500)
-          .distinctUntilChanged()
-          .subscribe(searchText => {
+      .debounceTime(500)
+      .distinctUntilChanged()
+      .subscribe(searchText => {
         console.log(this.searchText);
-            this.loadData(this.searchText)
-          });
+          this.loadData(this.searchText)
+        });
     }
 
   public loadData(searchText:string){
