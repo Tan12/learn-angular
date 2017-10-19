@@ -1,0 +1,14 @@
+<div class="panel panel-default">
+	<div class="panel-body">
+		<ul>
+		    <li *ngFor="let item of infoList">{{item.name}}</li>
+		</ul>
+	</div>
+	<div class="panel-footer">
+		<p-paginator rows="{{itemsPerPage}}" 
+		    totalRecords="{{totalRecords}}"
+		    first="{{offset}}"
+		    (onPageChange)="pageChanged($event)">
+		</p-paginator>
+	</div>
+</div>
