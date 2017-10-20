@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
@@ -9,7 +10,7 @@ import { getParamsRoutes } from './get-params.routes';
 
 @NgModule({
     imports: [
-      RouterModule,
+      CommonModule,
       PaginatorModule,
       RouterModule.forChild(getParamsRoutes)
     ],

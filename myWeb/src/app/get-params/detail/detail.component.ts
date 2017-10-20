@@ -58,24 +58,24 @@ public itemsPerPage:number=5;
   }
 
   ngOnInit() {
-    let url = window.location.href.split('/');
+    /*let url = window.location.href.split('/');
     console.log(url[url.length-1]);
     this.currentPage = parseInt(url[url.length-1]);
-    this.loadData();
+    this.loadData();*/
 
   	// 从路由里面获取URL参数
-  	// 我也不知道为啥我获取不到参数
-	/*this.activeRoute.params.subscribe(params => {
-	  console.log(params);
-	  this.currentPage = params.id;
-	  this.loadData();
-	});*/
+  	this.activeRoute.params.subscribe(params => {
+  	  console.log(params);
+  	  this.currentPage = params.id;
+  	  this.loadData();
+  	});
   }
 
   public loadData(){
-	this.offset = (this.currentPage-1)*this.itemsPerPage;
-	this.end = (this.currentPage)*this.itemsPerPage;
-	this.infoList = this.info.slice(this.offset, this.end>this.totalRecords?this.totalRecords:this.end);
+  	this.offset = (this.currentPage-1)*this.itemsPerPage;
+  	this.end = (this.currentPage)*this.itemsPerPage;
+  	this.infoList = this.info.slice(this.offset, this.end>this.totalRecords?this.totalRecords:this.end);
+    console.log(this.infoList);
   }
 
   public pageChanged(event:any):void {
