@@ -12,21 +12,7 @@ import { ListOneComponent } from './list/list-one/list-one.component';
 import { ListTwoComponent } from './list/list-two/list-two.component';
 import { HomeComponent } from './home/home.component';
 
-// 定义常量，嵌套路由
-const appChildRoutes: Routes = [
-  {path: '', redirectTo: 'one', pathMatch: 'full'},
-  {path: 'one', component: ListOneComponent},
-  {path: 'two', component: ListTwoComponent}
-];
-
-// 定义常量，路由
-const appRoutes: Routes = [
-  {path: '', redirectTo: 'home', pathMatch: 'full'},
-  {path: 'home', component: HomeComponent},
-  {path: 'list', component: ListComponent, children: appChildRoutes},
-  {path: 'getparams', loadChildren:'./get-params/get-params.module#GetParamsModule'},
-  {path: '**', redirectTo: 'home'} // 未定义路由跳转到home路由界面
-];
+import { appRoutes } from './app.routes';
 
 @NgModule({
   declarations: [
